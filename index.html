@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>50 Melhores Empreendimentos</title>
+  <meta name="description" content="Reconhecimento, conexão e valorização de empresas, profissionais e empreendedores.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f5f4f0; --ink:#111; --muted:#696969; --line:#d8d6d0; --card:#fff;
+      --accent:#c9a96a; --dark:#111; --max:1180px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(calc(100% - 40px),var(--max));margin:auto}
+    header{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(245,244,240,.9);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:.3s}
+    header.scrolled{border-color:var(--line)}
+    nav{height:78px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-weight:700;letter-spacing:.18em;font-size:14px}
+    .navlinks{display:flex;gap:28px;font-size:13px}
+    .navlinks a{opacity:.72;transition:.2s}.navlinks a:hover{opacity:1}
+    .menu{display:none;border:0;background:none;font-size:24px}
+    .hero{min-height:100vh;padding:150px 0 80px;display:grid;place-items:center;position:relative;overflow:hidden}
+    .hero:before{content:"50";position:absolute;right:-5vw;bottom:-15vw;font:700 55vw/1 "Playfair Display";color:#e9e7e0;z-index:-1}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center}
+    .eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:11px;font-weight:700;margin-bottom:25px}
+    h1{font:600 clamp(58px,9vw,126px)/.86 "Playfair Display";letter-spacing:-.055em;max-width:850px}
+    h1 em{font-weight:500}
+    .hero-visual{position:relative;min-height:560px}.hero-visual img{width:100%;height:560px;object-fit:cover;filter:grayscale(12%)}.hero-copy{max-width:390px;margin-left:auto}
+    .hero-copy p{color:var(--muted);font-size:16px;margin-bottom:30px}
+    .btn{display:inline-flex;align-items:center;gap:12px;padding:15px 22px;background:var(--dark);color:#fff;font-size:12px;text-transform:uppercase;letter-spacing:.12em;transition:.25s}
+    .btn:hover{transform:translateY(-3px);background:#333}
+    .photo-band{padding:30px 0 110px}.photo-grid{display:grid;grid-template-columns:1.2fr 1fr .8fr;gap:16px}.photo-grid img{width:100%;height:300px;object-fit:cover;filter:grayscale(12%)}.feature-image{padding:110px 0;background:#ebe9e2}.feature-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px;align-items:center}.feature-grid img{width:100%;height:520px;object-fit:cover}.feature-copy{margin-top:25px;color:#777;max-width:430px}.team-image{padding:0;background:#111}.team-image img{width:100%;height:420px;object-fit:cover;object-position:center}.intro{padding:110px 0;border-top:1px solid var(--line)}
+    .intro-grid{display:grid;grid-template-columns:1fr 2fr;gap:80px}
+    .section-num{font-size:12px;letter-spacing:.15em}
+    .lead{font:500 clamp(34px,5vw,66px)/1.02 "Playfair Display";letter-spacing:-.03em;max-width:850px}
+    .lead span{color:#999}
+    .benefits{padding:30px 0 120px}
+    .benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+    .benefit{padding:34px 25px 30px 0;border-bottom:1px solid var(--line)}
+    .benefit:nth-child(n+4){border-bottom:0}
+    .benefit strong{display:block;font:600 34px "Playfair Display";margin-bottom:8px}
+    .benefit h3{font-size:15px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+    .benefit p{font-size:14px;color:var(--muted);max-width:270px}
+    .cta{background:#111;color:#fff;padding:120px 0;position:relative;overflow:hidden}
+    .cta:after{content:"";position:absolute;width:45vw;height:45vw;border:1px solid #333;border-radius:50%;right:-15vw;top:-18vw}
+    .cta h2{font:600 clamp(48px,7vw,92px)/.95 "Playfair Display";max-width:850px;letter-spacing:-.04em;position:relative;z-index:1}
+    .cta p{color:#aaa;max-width:560px;margin:25px 0 35px;position:relative;z-index:1}
+    .btn.light{background:#fff;color:#111}
+    .categories{padding:120px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:45px}
+    h2.title{font:600 clamp(40px,6vw,72px)/1 "Playfair Display";letter-spacing:-.04em}
+    .category-grid{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line)}
+    .category{padding:25px 10px 25px 0;border-bottom:1px solid var(--line);min-height:115px;transition:.25s}
+    .category:hover{padding-left:10px;background:#ebe9e2}
+    .category small{font-size:10px;color:#999;display:block;margin-bottom:20px}
+    .category span{font-size:14px;text-transform:uppercase;letter-spacing:.04em}
+    .services{background:#e9e7e0;padding:95px 0}
+    .service-list{margin-top:50px;border-top:1px solid #c8c6bf}
+    .service{display:flex;justify-content:space-between;padding:23px 0;border-bottom:1px solid #c8c6bf;font:500 24px "Playfair Display"}
+    .service b{font:400 18px "DM Sans";color:#999}
+    .press{padding:120px 0}
+    .press-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
+    .press-card{background:#fff;border:1px solid var(--line);padding:28px;min-height:245px;display:flex;flex-direction:column;justify-content:space-between;transition:.25s}
+    .press-card:hover{transform:translateY(-5px)}
+    .tag{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:#888}
+    .press-card h3{font:500 28px/1.05 "Playfair Display"}
+    .clients{background:#111;color:#fff;padding:100px 0}
+    .client-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#333;margin-top:55px}
+    .client{min-height:130px;display:grid;place-items:center;background:#111;text-align:center;padding:20px;font:500 19px "Playfair Display"}
+    footer{padding:65px 0 35px;background:#111;color:#fff;border-top:1px solid #333}
+    .footer-top{display:flex;justify-content:space-between;gap:40px;padding-bottom:70px}
+    .footer-brand{font:600 38px "Playfair Display"}
+    .contact{text-align:right;color:#aaa;font-size:14px;line-height:2}
+    .footer-bottom{border-top:1px solid #333;padding-top:25px;color:#666;font-size:11px;display:flex;justify-content:space-between}
+    @media(max-width:800px){
+      .hero-visual{min-height:400px}.hero-visual img{height:400px}.photo-grid,.feature-grid{grid-template-columns:1fr}.photo-grid img{height:300px}.feature-grid img{height:360px}.team-image img{height:300px}
+      .navlinks{display:none}.menu{display:block}.navlinks.open{display:flex;position:absolute;top:78px;left:0;right:0;background:var(--bg);padding:25px;flex-direction:column;gap:18px;border-bottom:1px solid var(--line)}
+      .hero-grid,.intro-grid{grid-template-columns:1fr;gap:45px}.hero-copy{margin:0}.benefit-grid{grid-template-columns:1fr 1fr}.category-grid{grid-template-columns:1fr 1fr}.press-grid{grid-template-columns:1fr}.client-grid{grid-template-columns:1fr 1fr}.footer-top{flex-direction:column}.contact{text-align:left}
+    }
+    @media(max-width:500px){
+      .container{width:min(calc(100% - 28px),var(--max))}.benefit-grid{grid-template-columns:1fr}.benefit{border-bottom:1px solid var(--line)!important}.category-grid{grid-template-columns:1fr}.hero{padding-top:120px}.client-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+<header id="header">
+  <nav class="container">
+    <a class="logo" href="#">50 MELHORES</a>
+    <button class="menu" id="menu" aria-label="Abrir menu">☰</button>
+    <div class="navlinks" id="navlinks">
+      <a href="#evento">O evento</a><a href="#categorias">Categorias</a><a href="#reconhecimento">Reconhecimento</a><a href="#contato">Contato</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Revista Perfil apresenta</div>
+      <h1>Excelência que <em>merece</em> ser reconhecida.</h1>
+    </div>
+    <div class="hero-visual"><img src="images/img_00.png" alt="Revista Perfil e participantes do evento 50 Melhores"></div>
+    <div class="hero-copy">
+      <p>Grandes resultados nascem de grandes histórias. O evento 50 Melhores Empreendimentos celebra empresas e profissionais que se destacam em seus segmentos e deixam sua marca na região.</p>
+      <a class="btn" href="#participar">Faça parte <span>↗</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="intro" id="evento">
+  <div class="container intro-grid">
+    <div class="section-num">01 / O EVENTO</div>
+    <div>
+      <p class="lead">Mais do que uma premiação. <span>Uma celebração de quem transforma ideias em resultados.</span></p>
+      <p style="margin-top:30px;color:#777;max-width:650px">Uma noite dedicada ao reconhecimento, à conexão e à valorização de quem transforma ideias em negócios e negócios em histórias de sucesso.</p>
+    </div>
+  </div>
+</section>
+
+<section class="photo-band"><div class="container photo-grid"><img src="images/img_07.png" alt="Participantes em cerimônia de reconhecimento"><img src="images/img_10.png" alt="Empresárias e convidadas do evento"><img src="images/img_11.png" alt="Convidada em jantar do evento"></div></section>
+
+<section class="benefits" id="reconhecimento">
+  <div class="container">
+    <div class="benefit-grid">
+      <article class="benefit"><strong>01</strong><h3>Reconhecimento</h3><p>Sua marca diante de um público de empresários e profissionais.</p></article>
+      <article class="benefit"><strong>02</strong><h3>Visibilidade</h3><p>Um encontro criado para reconhecer empresas, profissionais e empreendedores que se destacam em suas áreas.</p></article>
+      <article class="benefit"><strong>03</strong><h3>Conexões</h3><p>Um ambiente para criar novos relacionamentos e oportunidades.</p></article>
+      <article class="benefit"><strong>04</strong><h3>Celebrações</h3><p>Uma noite para comemorar quem faz a diferença.</p></article>
+      <article class="benefit"><strong>05</strong><h3>Autoridades</h3><p>Fortaleça a reputação da sua marca diante de empresários e profissionais.</p></article>
+      <article class="benefit"><strong>06</strong><h3>Novas oportunidades</h3><p>Amplie sua rede e abra portas para novas parcerias e negócios.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="participar">
+  <div class="container">
+    <div class="eyebrow">50 Melhores Empreendimentos</div>
+    <h2>Sua história merece estar entre as melhores.</h2>
+    <p>Faça parte dos 50 Melhores Empreendimentos e dê destaque à trajetória e aos resultados da sua marca.</p>
+    <a class="btn light" href="#contato">Quero participar ↗</a>
+  </div>
+</section>
+
+<section class="categories" id="categorias">
+  <div class="container">
+    <div class="section-head"><div><div class="eyebrow">Reconhecimento por segmento</div><h2 class="title">Categorias</h2></div><span class="section-num">10 categorias</span></div>
+    <div class="category-grid">
+      <div class="category"><small>01</small><span>Empresas</span></div>
+      <div class="category"><small>02</small><span>Empreendedorismo</span></div>
+      <div class="category"><small>03</small><span>Saúde</span></div>
+      <div class="category"><small>04</small><span>Construção e Engenharia</span></div>
+      <div class="category"><small>05</small><span>Finanças</span></div>
+      <div class="category"><small>06</small><span>Gastronomia</span></div>
+      <div class="category"><small>07</small><span>Beleza e Estética</span></div>
+      <div class="category"><small>08</small><span>Tecnologia e Inovação</span></div>
+      <div class="category"><small>09</small><span>Comércio</span></div>
+      <div class="category"><small>10</small><span>Educação</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="container">
+    <div class="eyebrow">Soluções</div>
+    <h2 class="title">Ativações de marca</h2>
+    <div class="service-list">
+      <div class="service"><span>Ativação de Marcas</span><b>01</b></div>
+      <div class="service"><span>Marketing Integrado</span><b>02</b></div>
+      <div class="service"><span>Desenvolvimento de Site</span><b>03</b></div>
+      <div class="service"><span>Produção de Vídeo</span><b>04</b></div>
+      <div class="service"><span>Identidade de Marca</span><b>05</b></div>
+      <div class="service"><span>Estratégia de Marca</span><b>06</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="feature-image"><div class="container feature-grid"><div><div class="eyebrow">Uma noite para celebrar</div><h2 class="title">Histórias que merecem ser vistas.</h2><p class="feature-copy">Reconhecimento, conexão e valorização de quem transforma ideias em negócios e negócios em histórias de sucesso.</p></div><img src="images/img_09.png" alt="Cerimônia de reconhecimento da Revista Perfil"></div></section>
+
+<section class="press">
+  <div class="container">
+    <div class="eyebrow">Trajetória · História · Prêmios e Imprensa</div>
+    <h2 class="title">Um reconhecimento<br>que continua.</h2>
+    <div class="press-grid">
+      <article class="press-card"><span class="tag">Imprensa</span><h3>Schematiq faz parceria com o Estúdio Ágata para lançar novo aplicativo</h3><span class="tag">03 de janeiro de 2030</span></article>
+      <article class="press-card"><span class="tag">Prêmios</span><h3>O Estúdio Ágata ganha o prêmio Agência do Ano</h3><span class="tag">24 de novembro de 2030</span></article>
+      <article class="press-card"><span class="tag">Imprensa</span><h3>Adicione o título do artigo aqui</h3><span class="tag">03 de janeiro de 2030</span></article>
+    </div>
+  </div>
+</section>
+
+<section class="team-image"><div class="container"><img src="images/img_21.png" alt="Equipe e profissionais"></div></section>
+
+<section class="clients">
+  <div class="container">
+    <div class="eyebrow">Nossos clientes</div>
+    <h2 class="title">Marcas que fazem parte.</h2>
+    <div class="client-grid">
+      <div class="client">Schematiq</div><div class="client">Energia</div><div class="client">Céu e Lua</div><div class="client">EncantodaLua</div>
+      <div class="client">Verde Mar</div><div class="client">MMEEMMEENNTTOO</div><div class="client">Protetores da Vida Selvagem</div><div class="client">Páginas & Cia.</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="contato">
+  <div class="container">
+    <div class="footer-top">
+      <div><div class="eyebrow">50 Melhores Empreendimentos</div><div class="footer-brand">Sua história.<br>Seu reconhecimento.</div></div>
+      <div class="contact">Trabalhe conosco<br><a href="mailto:ola@grandesite.com.br">ola@grandesite.com.br</a><br>(12) 3456-7890<br>Rua Alegre, 123<br>Cidade Brasileira - EQ</div>
+    </div>
+    <div class="footer-bottom"><span>© 50 Melhores Empreendimentos</span><span>Revista Perfil</span></div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const menu=document.getElementById('menu');
+  const nav=document.getElementById('navlinks');
+  window.addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>20));
+  menu.addEventListener('click',()=>nav.classList.toggle('open'));
+  document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+</script>
+</body>
+</html>
